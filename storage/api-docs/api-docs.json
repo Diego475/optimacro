@@ -1,0 +1,88 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Документация",
+        "description": "Документация для разработчкиков",
+        "version": "1.0"
+    },
+    "paths": {
+        "/posts": {
+            "get": {
+                "operationId": "5f292ed47bdbfa79356750be0807450c",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": 6
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "int64"
+                        },
+                        "example": "desc"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            },
+                                            "title": {
+                                                "type": "string",
+                                                "example": "Title"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Description post"
+                                            },
+                                            "short_description": {
+                                                "type": "string",
+                                                "example": "Short description post"
+                                            },
+                                            "deleted_at": {
+                                                "type": "null",
+                                                "example": "null"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "2022-10-07T15:57:01.000000Z"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "2022-10-07T15:57:01.000000Z"
+                                            },
+                                            "cover": {
+                                                "type": "string",
+                                                "example": "https://via.placeholder.com/400"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

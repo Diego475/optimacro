@@ -7,3 +7,9 @@
 <script>
 export default {}
 </script>
+
+<style>
+    body {
+        background-color: rgb(248 250 252);
+    }
+</style>
