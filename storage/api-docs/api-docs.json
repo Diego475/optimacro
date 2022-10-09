@@ -25,10 +25,19 @@
                         "in": "query",
                         "required": false,
                         "schema": {
-                            "type": "string",
-                            "format": "int64"
+                            "type": "string"
                         },
                         "example": "desc"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
                     }
                 ],
                 "responses": {

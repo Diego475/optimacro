@@ -23,11 +23,20 @@ class PostController extends Controller
      *      @OA\Parameter(
      *          name="date",
      *          @OA\Schema(
-     *              type="string",
-     *              format="int64"
+     *              type="string"
      *          ),
      *          in="query",
      *          example="desc",
+     *          required=false,
+     *      ),
+     *      @OA\Parameter(
+     *          name="page",
+     *          @OA\Schema(
+     *              type="integer",
+     *              format="int64"
+     *          ),
+     *          in="query",
+     *          example="1",
      *          required=false,
      *      ),
      *      @OA\Response(
@@ -52,7 +61,10 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        $posts = Post::filter($request)->sorting($request)->get();
+        if ($request->page) 
+            $posts = Post::paginate($request->limit);
+        else 
+            $posts = Post::filter($request)->sorting($request)->get();
 
         return $posts;
     }
