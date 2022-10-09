@@ -81,11 +81,83 @@
                                             },
                                             "cover": {
                                                 "type": "string",
+                                                "example": "https://via.placeholder.com/1000"
+                                            },
+                                            "miniature": {
+                                                "type": "string",
                                                 "example": "https://via.placeholder.com/400"
                                             }
                                         },
                                         "type": "object"
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/posts/{id}": {
+            "get": {
+                "operationId": "c8bd68bc05422c879bc2dd429ae5782b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "title": {
+                                            "type": "string",
+                                            "example": "Title"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Description post"
+                                        },
+                                        "short_description": {
+                                            "type": "string",
+                                            "example": "Short description post"
+                                        },
+                                        "deleted_at": {
+                                            "type": "null",
+                                            "example": "null"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "2022-10-07T15:57:01.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "2022-10-07T15:57:01.000000Z"
+                                        },
+                                        "cover": {
+                                            "type": "string",
+                                            "example": "https://via.placeholder.com/1000"
+                                        },
+                                        "miniature": {
+                                            "type": "string",
+                                            "example": "https://via.placeholder.com/400"
+                                        }
+                                    },
+                                    "type": "object"
                                 }
                             }
                         }

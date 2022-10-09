@@ -17,14 +17,19 @@ class PostTest extends TestCase
 
     public function tearDown() : void
     {
-        $ids = $this->posts->map->only(['id']);
-        Post::whereIn('id', $ids)->forceDelete();
+        Post::whereIn('id', $this->posts->map->only(['id']))->forceDelete();
         parent::tearDown();
     }
 
-    public function test_example()
+    public function test_get_posts()
     {
         $response = $this->get('/api/posts');
+        $response->assertStatus(200);
+    }
+
+    public function test_get_post()
+    {   
+        $response = $this->get('/api/posts/' . $this->posts[0]->id);
         $response->assertStatus(200);
     }
 }

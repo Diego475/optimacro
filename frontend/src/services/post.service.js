@@ -7,5 +7,12 @@ export default {
         }).catch(err => {
             return err;
         })
-    }
+    },
+    item(id) {
+        return postApi.item(id).then(res => {
+            return res;
+        }).catch(err => {
+            return err;
+        })
+    },
 };

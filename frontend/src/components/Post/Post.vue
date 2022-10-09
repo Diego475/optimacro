@@ -7,7 +7,7 @@
         <div class="mt-4 text-gray-500 text-center text-sm mb-4">
             {{ post.short_description }}
         </div>
-        <button class="py-3 w-full rounded-md bg-green-500 text-white hover:bg-green-600">
+        <button @click="$router.push({name: 'Post', params: {id: post.id}})" class="py-3 w-full rounded-md bg-green-500 text-white hover:bg-green-600">
             {{ $t('go') }}
         </button>
     </div>

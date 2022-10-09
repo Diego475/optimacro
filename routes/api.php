@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('posts')->group(function () {
     Route::controller(App\Http\Controllers\PostController::class)->group(function () {
         Route::get('/', 'index');
+        Route::get('{id}', 'show');
     });
 });

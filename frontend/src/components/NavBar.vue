@@ -5,7 +5,7 @@
                 <li :class="$route.name=='Home'?'text-blue-600':'text-blue-400'">
                     <router-link :to="{name: 'Home'}">{{ $t('home_page') }}</router-link>
                 </li>
-                <li :class="$route.name=='Posts'?'text-blue-600':'text-blue-400'">
+                <li :class="['Posts', 'Post'].includes($route.name)?'text-blue-600':'text-blue-400'">
                     <router-link :to="{name:'Posts'}">{{ $t('catalog_posts') }}</router-link>
                 </li>
             </ul>

@@ -8,4 +8,11 @@ export default {
             return err;
         });
     },
+    item(id) {
+        return client.get(`/posts/${id}`).then(res => {
+            return res.data;
+        }).catch(err => {
+            return err;
+        });
+    },
 }
