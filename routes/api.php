@@ -19,3 +19,7 @@ Route::prefix('posts')->group(function () {
         Route::get('{id}', 'show');
     });
 });
+
+Route::controller(App\Http\Controllers\AuthController::class)->group(function () {
+    Route::post('login', 'login');
+});
