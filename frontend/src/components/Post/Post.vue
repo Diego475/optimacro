@@ -15,13 +15,14 @@
         <template v-else>
             <div class="flex gap-x-7 text-white mt-4">
                 <button class="bg-blue-500 rounded-md py-3 hover:bg-blue-600 w-full">{{ $t('edit') }}</button>
-                <button class="bg-red-500 rounded-md py-3 hover:bg-red-600 w-full">{{ $t('delete') }}</button>
+                <button @click="deletePost()" class="bg-red-500 rounded-md py-3 hover:bg-red-600 w-full">{{ $t('delete') }}</button>
             </div>
         </template>
     </div>
 </template>
 
 <script>
+import postService from '../../services/post.service'
 export default {
     name: "ItemPost",
     props: ["post"],
@@ -29,6 +30,19 @@ export default {
         return {
             admin_routers: ['PostsAdmin', 'PostAdmin']
         }
+    },
+    methods: {
+        deletePost() {
+            postService.delete(this.post.id)
+                .then(res => {
+                    if (res&&res.success) {
+                        this.$emit('removeItem', this.post);
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+            });
+        },
     }
 }
 </script>

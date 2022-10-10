@@ -15,4 +15,9 @@ class User extends Authenticatable
     protected $fillable = ['email', 'password'];
 
     protected $hidden = ['password'];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

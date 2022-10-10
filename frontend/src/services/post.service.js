@@ -15,4 +15,11 @@ export default {
             return err;
         })
     },
+    delete(id) {
+        return postApi.delete(id).then(res => {
+            return res;
+        }).catch(err => {
+            return err;
+        })
+    },
 };

@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div v-if="delete_post" class="fixed bottom-0 right-0">
+            <div class="px-4 py-2 rounded text-white bg-green-500 mb-6 mr-3">
+                {{ $t('post_success_delete') }}
+            </div>
+        </div>
         <div v-if="!getToken()" class="w-screen h-screen bg-green-500">
             <div v-if="error" class="absolute bottom-0 right-0">
                 <div class="px-4 py-2 text-white bg-red-500 mb-6 mr-3">
@@ -33,7 +38,7 @@
             <loading v-if="loading" />
             <div v-else class="container mx-auto grid md:grid-cols-3 gap-y-7 gap-x-6 pb-7">
                 <div v-for="post in posts" :key="post.id">
-                    <post-item :post="post" />
+                    <post-item @removeItem="removeItem(post)" :post="post" />
                 </div>
             </div>
         </div>
@@ -56,6 +61,7 @@ export default {
             posts: [],
             disable: false,
             loading: false,
+            delete_post: false,
         }
     },
     components: { PostItem, Loading },
@@ -112,7 +118,12 @@ export default {
                 .catch(err => {
                     console.log(err);
             });
-        }
+        },
+        removeItem(post) {
+            this.delete_post = true;
+            this.posts = this.posts.filter(item => post.id !== item.id);
+            setTimeout(() => {this.delete_post = false;}, 1500);
+        },
     }
 }
 </script>

@@ -15,4 +15,11 @@ export default {
             return err;
         });
     },
+    delete(id) {
+        return client.delete(`/posts/${id}`, {headers: {Authorization: "Bearer " + window.localStorage.token }}).then(res => {
+            return res.data
+        }).catch(err => { 
+            return err 
+        });
+    },
 }
