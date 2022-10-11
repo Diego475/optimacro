@@ -17,9 +17,16 @@ export default {
     },
     delete(id) {
         return client.delete(`/posts/${id}`, {headers: {Authorization: "Bearer " + window.localStorage.token }}).then(res => {
-            return res.data
+            return res.data;
         }).catch(err => { 
-            return err 
+            return err;
+        });
+    },
+    post(data) {
+        return client.post(`/posts`, data, {headers: {Authorization: "Bearer " + window.localStorage.token }}).then(res => {
+            return res.data;
+        }).catch(err => {
+            return err;
         });
     },
 }

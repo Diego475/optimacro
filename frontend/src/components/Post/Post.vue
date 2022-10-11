@@ -14,7 +14,7 @@
         </template>
         <template v-else>
             <div class="flex gap-x-7 text-white mt-4">
-                <button class="bg-blue-500 rounded-md py-3 hover:bg-blue-600 w-full">{{ $t('edit') }}</button>
+                <button @click="$router.push({name: 'PostAdmin', params: {id: post.id}})" class="bg-blue-500 rounded-md py-3 hover:bg-blue-600 w-full">{{ $t('edit') }}</button>
                 <button @click="deletePost()" class="bg-red-500 rounded-md py-3 hover:bg-red-600 w-full">{{ $t('delete') }}</button>
             </div>
         </template>

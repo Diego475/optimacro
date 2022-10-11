@@ -105,72 +105,6 @@
                 }
             }
         },
-        "/login": {
-            "post": {
-                "operationId": "2dd578ff7aba2721293dac66833b27d1",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "email": {
-                                        "type": "string"
-                                    },
-                                    "password": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "get token",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "token": {
-                                            "type": "string",
-                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTRhZTcxZGIyODEzZDgwY2NjZWE5MTMzZDhjOGRjNjc3NTlkZGVmODRlMTFmMjkzMTE5MjFmOTQ4ZTRjZjZhMjBiM2I2OTYyNDA2ZmE3MmQiLCJpYXQiOjE2NjU0MDgxNDMsIm5iZiI6MTY2NTQwODE0MywiZXhwIjoxNjk2OTQ0MTQzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.WZWIYrReYym6Ea4RmYhWaIIbyH3vrf485h5dda1tiuCmpoVNf6T_wdaf1ww2cutSlHG6KD97Q7py1Eoe1fVUjwbzUWMNewuIMLHziELHS5TLkkJRv19LIccMVwTUK0BZvq_LtYVZ3Qox9vbcyfGK4mjqIiXyeha6TZSuqaqjMQhTFChV4WKrS1tmCGH_yrEy9DlT-8kwWS5Ty_647Gigo9Ti6HRJyqVMy_OtNvR5zj_0azOp2o99xCYWyP_MYUTgaQatEAYedtN3HWYHzSpCHLA1OK3PAoLNVC_mEu4JFtjc5X-Gj72bY2KUMYzASWcxPVtIplhva9AvfNE3TxNyTcH_wjpyTGmLY54-lA60EWMugRRUu2kKMCQu1lk_GV5F4S2p88BR_o-s2i7hzm4SrO5SUMvbUWoxR-1GIp6BrCSNU-zeXp4GITudFzNUXpb_-a7Jd5b1p9Kz_o6QS5ij4mAPPP0xmkz0vjrvqDUdv2ZyQl2iev9P0LB53y3fcF01Uagrl4pLJj31vMdLzjAfcv4AzeSx5LfImWNgQJddBoIIdd-xbUm3Is_PuJdJ2xPefgp24gDBd5LnTzvzwcPW8AXltiWLLL_5eCm7YKkv74Nvas8IXyY7hZeaLkqH4OPGERHmmYnOmxdwwKAzK2DlPqyQWM1PSK4knSDfh6WGLSA"
-                                        },
-                                        "user": {
-                                            "properties": {
-                                                "id": {
-                                                    "type": "integer",
-                                                    "example": 1
-                                                },
-                                                "email": {
-                                                    "type": "email",
-                                                    "example": "example@mail.ru"
-                                                },
-                                                "deleted_at": {
-                                                    "type": "null",
-                                                    "example": null
-                                                },
-                                                "created_at": {
-                                                    "type": "string",
-                                                    "example": "2022-10-10T12:25:51.000000Z"
-                                                },
-                                                "updated_at": {
-                                                    "type": "string",
-                                                    "example": "2022-10-10T12:25:51.000000Z"
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/posts": {
             "get": {
                 "operationId": "5f292ed47bdbfa79356750be0807450c",
@@ -255,6 +189,121 @@
                                         },
                                         "type": "object"
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "a6884b7123f15762346bf4da01780d6a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Title post"
+                                    },
+                                    "short_description": {
+                                        "type": "string",
+                                        "example": "Short description post"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Text post"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "create or update",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "operationId": "2dd578ff7aba2721293dac66833b27d1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "get token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTRhZTcxZGIyODEzZDgwY2NjZWE5MTMzZDhjOGRjNjc3NTlkZGVmODRlMTFmMjkzMTE5MjFmOTQ4ZTRjZjZhMjBiM2I2OTYyNDA2ZmE3MmQiLCJpYXQiOjE2NjU0MDgxNDMsIm5iZiI6MTY2NTQwODE0MywiZXhwIjoxNjk2OTQ0MTQzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.WZWIYrReYym6Ea4RmYhWaIIbyH3vrf485h5dda1tiuCmpoVNf6T_wdaf1ww2cutSlHG6KD97Q7py1Eoe1fVUjwbzUWMNewuIMLHziELHS5TLkkJRv19LIccMVwTUK0BZvq_LtYVZ3Qox9vbcyfGK4mjqIiXyeha6TZSuqaqjMQhTFChV4WKrS1tmCGH_yrEy9DlT-8kwWS5Ty_647Gigo9Ti6HRJyqVMy_OtNvR5zj_0azOp2o99xCYWyP_MYUTgaQatEAYedtN3HWYHzSpCHLA1OK3PAoLNVC_mEu4JFtjc5X-Gj72bY2KUMYzASWcxPVtIplhva9AvfNE3TxNyTcH_wjpyTGmLY54-lA60EWMugRRUu2kKMCQu1lk_GV5F4S2p88BR_o-s2i7hzm4SrO5SUMvbUWoxR-1GIp6BrCSNU-zeXp4GITudFzNUXpb_-a7Jd5b1p9Kz_o6QS5ij4mAPPP0xmkz0vjrvqDUdv2ZyQl2iev9P0LB53y3fcF01Uagrl4pLJj31vMdLzjAfcv4AzeSx5LfImWNgQJddBoIIdd-xbUm3Is_PuJdJ2xPefgp24gDBd5LnTzvzwcPW8AXltiWLLL_5eCm7YKkv74Nvas8IXyY7hZeaLkqH4OPGERHmmYnOmxdwwKAzK2DlPqyQWM1PSK4knSDfh6WGLSA"
+                                        },
+                                        "user": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "email": {
+                                                    "type": "email",
+                                                    "example": "example@mail.ru"
+                                                },
+                                                "deleted_at": {
+                                                    "type": "null",
+                                                    "example": null
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2022-10-10T12:25:51.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2022-10-10T12:25:51.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
                                 }
                             }
                         }

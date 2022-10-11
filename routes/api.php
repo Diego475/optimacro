@@ -21,6 +21,7 @@ Route::prefix('posts')->group(function () {
     Route::controller(App\Http\Controllers\Admin\PostController::class)->group(function () {
         Route::middleware(['auth:api', 'admin'])->group(function () {
             Route::delete('{id}', 'delete');
+            Route::post('/', 'create');
         });
     });
 });

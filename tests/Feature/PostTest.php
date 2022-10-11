@@ -42,4 +42,16 @@ class PostTest extends TestCase
         $response = $this->actingAs($this->user, 'api')->delete('/api/posts/' . $this->posts[0]->id);
         $response->assertStatus(200);
     }
+
+    public function test_create_post()
+    {
+        $post = $this->posts[0];
+        $response = $this->actingAs($this->user, 'api')->post('/api/posts', [
+            "id" => $post->id,
+            "title" => $post->title,
+            "short_description" => $post->short_description,
+            "description" => $post->description
+        ]);
+        $response->assertStatus(200);
+    }
 }

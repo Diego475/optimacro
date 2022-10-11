@@ -11,5 +11,14 @@
     "edit": "Редактирвоать",
     "delete": "Удалить",
     "add_post": "Добавить статью",
-    "post_success_delete": "Статья успешно удалена!"
+    "post_success_delete": "Статья успешно удалена!",
+    "title_post": "Загаловок статьи",
+    "short_description_post": "Краткое описание статьи",
+    "text_post_card": "Описание в карточке статьи",
+    "post": "Статья",
+    "text_post": "Текст статьи",
+    "save": "Сохранить",
+    "upload_cover_post": "Загрузить обложку статьи",
+    "upload_miniature": "Загрузить миниатюру",
+    "post_success_save": "Статья успешно сохранена!"
 }

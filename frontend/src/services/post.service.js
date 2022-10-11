@@ -22,4 +22,11 @@ export default {
             return err;
         })
     },
+    post(data) {
+        return postApi.post(data).then(res => {
+            return res;
+        }).catch(err => {
+            return err;
+        })
+    }
 };
