@@ -43,7 +43,7 @@ class PostTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_create_post()
+    public function test_update_post()
     {
         $post = $this->posts[0];
         $response = $this->actingAs($this->user, 'api')->post('/api/posts', [
@@ -53,5 +53,17 @@ class PostTest extends TestCase
             "description" => $post->description
         ]);
         $response->assertStatus(200);
+    }
+
+    public function test_create_post()
+    {
+        $response = $this->actingAs($this->user, 'api')->post('/api/posts');
+        $response->assertStatus(201);
+    }
+
+    public function test_post_not_found()
+    {
+        $response = $this->get('/api/posts/0');
+        $response->assertStatus(404);
     }
 }
