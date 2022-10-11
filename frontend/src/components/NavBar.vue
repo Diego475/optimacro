@@ -23,7 +23,7 @@
                     </li>
                 </ul>
                 <div>
-                    <button class="bg-green-500 px-3 rounded-md py-3 text-white hover:bg-green-600 w-full">{{ $t('add_post') }}</button>
+                    <button @click="createPost()" class="bg-green-500 px-3 rounded-md py-3 text-white hover:bg-green-600 w-full">{{ $t('add_post') }}</button>
                 </div>
             </div>
         </header>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import postService from '../services/post.service';
 export default {
     data() {
         return {
@@ -46,6 +47,15 @@ export default {
 
             return false;
         },
+        createPost() {
+            postService.post()
+                .then(res => {
+                    this.$router.push({name: 'PostAdmin', params: {id: res.id}});
+                }).catch(err => {
+                    console.log(err);
+                }
+            );
+        }
     },
 };
 </script>

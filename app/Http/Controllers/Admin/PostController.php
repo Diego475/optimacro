@@ -74,14 +74,14 @@ class PostController extends Controller
         $data['cover'] = 'https://via.placeholder.com/1000';
         $data['miniature'] = 'https://via.placeholder.com/400';
 
-        if (is_null($request->id)) {
-            if (!Post::where()->exists())
+        if (is_null($request->id))
+            return Post::create($data);
+        else {
+            if (!Post::where('id', $request->id)->exists())
                 return response()->json(["success" => false, "msg" => "not_fount_post"], 404);
 
-            Post::create($request->all());
-        }
-        else
             Post::where('id', $request->id)->update($data);
+        }
 
         return response()->json(["success" => true]);
     }
